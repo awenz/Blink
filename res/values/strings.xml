@@ -5,5 +5,9 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">Blink</string>
     <string name="Stop_Button">Start</string>
+    <string name="manage_programms">Manage Programms</string>
+    <string name="no_programms">No Programms</string>
+    <string name="no_data">No Programm Data</string>
+    <string name="add_programm">Add Programm</string>
 
 </resources>

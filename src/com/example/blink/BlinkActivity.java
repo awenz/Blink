@@ -1,9 +1,11 @@
 package com.example.blink;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +15,8 @@ public class BlinkActivity extends Activity {
 	private TextView text;
 	private boolean running = false;
 	private Handler handler;
+	private static final int ACTIVITY_CREATE=0;
+
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,15 @@ public class BlinkActivity extends Activity {
         return true;
     }
     
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.manage_programms:     manageProgramms();
+                                break;
+        }
+        return true;
+    }
+    
     public void updateTime(final Stopwatch s){
     	Runnable run = new Runnable() {
     		@Override
@@ -64,5 +77,10 @@ public class BlinkActivity extends Activity {
     		}
     	};
     	new Thread(run).start();
+    }
+    
+    public void manageProgramms() {
+    	Intent i = new Intent(this, Manage_List.class);
+        startActivityForResult(i, ACTIVITY_CREATE);
     }
 }
