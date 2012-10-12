@@ -16,25 +16,35 @@ public final class R {
     }
     public static final class id {
         public static final int Count=0x7f070001;
-        public static final int add_programm=0x7f070004;
+        public static final int add_intervall=0x7f070007;
+        public static final int add_programm=0x7f070006;
         public static final int android_create=0x7f070002;
-        public static final int manage_programms=0x7f070003;
+        public static final int confirm=0x7f070004;
+        public static final int intervall=0x7f070003;
+        public static final int manage_programms=0x7f070005;
         public static final int trigger=0x7f070000;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int programm_create=0x7f030001;
-        public static final int programm_list=0x7f030002;
+        public static final int programm_edit=0x7f030002;
+        public static final int programm_item=0x7f030003;
+        public static final int programm_list=0x7f030004;
     }
     public static final class menu {
         public static final int activity_main=0x7f060000;
         public static final int manage_programms=0x7f060001;
+        public static final int programm_creator=0x7f060002;
     }
     public static final class string {
         public static final int Stop_Button=0x7f040004;
+        public static final int add_intervall=0x7f04000c;
         public static final int add_programm=0x7f040008;
         public static final int app_name=0x7f040000;
+        public static final int confirm=0x7f040009;
+        public static final int edit_programm=0x7f04000b;
         public static final int hello_world=0x7f040001;
+        public static final int intervall=0x7f04000a;
         public static final int manage_programms=0x7f040005;
         public static final int menu_settings=0x7f040002;
         public static final int no_data=0x7f040007;

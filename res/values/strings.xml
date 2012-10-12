@@ -9,5 +9,9 @@
     <string name="no_programms">No Programms</string>
     <string name="no_data">No Programm Data</string>
     <string name="add_programm">Add Programm</string>
+    <string name="confirm">Confirm</string>
+    <string name="intervall">Intervall</string>
+    <string name="edit_programm">Edit Programm</string>
+    <string name="add_intervall">Add Intervall</string>
 
 </resources>
