@@ -12,7 +12,7 @@ import android.util.Xml;
 
 public class Programm_Handler {
 	
-	public static String create_Programm (Programm programm) throws Exception {
+	public String create_Programm (Programm programm) throws Exception {
 		XmlSerializer xmlSerializer = Xml.newSerializer();
 		StringWriter writer = new StringWriter();
 		xmlSerializer.setOutput(writer);
@@ -39,7 +39,7 @@ public class Programm_Handler {
 	}
 	
 	public void WriteProgramm (String programm, String ProgrammName){
-		File file = new File(ProgrammName);
+		File file = new File("/mnt/sdcard/Programms/" + ProgrammName);
 		BufferedWriter writer = null;
 		try {
 		writer = new BufferedWriter(new FileWriter(file, true));

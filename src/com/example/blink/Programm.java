@@ -1,26 +1,31 @@
 package com.example.blink;
 
 public class Programm {
-	private int a,b,c,d,e,f,g,h,i,j = 0;
+	private int a,b,c,d,e,f,g,h,i,j;
+	private String name;
+	
+	public void setname(String name){
+		this.name=name;
+	}
 	
 	public void seta(int i){
-		a=i;
+		this.a=i;
 	}
 	
 	public void setb(int i){
-		b=i;
+		this.b=i;
 	}
 	
 	public void setc(int i){
-		c=i;
+		this.c=i;
 	}
 	
 	public void setd(int i){
-		d=i;
+		this.d=i;
 	}
 	
 	public void sete(int i){
-		e=i;
+		this.e=i;
 	}
 	
 	public void setf(int i){
@@ -41,6 +46,10 @@ public class Programm {
 	
 	public void setj(int i){
 		j=i;
+	}
+	
+	public String getname(){
+		return this.name;
 	}
 	
 	public int geta(){

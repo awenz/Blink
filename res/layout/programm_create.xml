@@ -4,10 +4,17 @@
     	android:layout_height="match_parent">
     
     <EditText
-        android:id="@+id/intervall1"
+        android:id="@+id/programm_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:inputType="text" />
+        
+     <EditText
+        android:id="@+id/intervall1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/programm_name"
         android:inputType="numberDecimal"
         android:scrollbars="vertical" />
 
@@ -16,16 +23,19 @@
 		android:layout_below="@+id/intervall1"
 		android:inputType="numberDecimal"
 		android:scrollbars="vertical" />
+    
     <EditText android:id="@+id/intervall3" android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_below="@+id/intervall2"
 		android:inputType="numberDecimal"
 		android:scrollbars="vertical" />
+    
     <EditText android:id="@+id/intervall4" android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_below="@+id/intervall3"
 		android:inputType="numberDecimal"
 		android:scrollbars="vertical" />
+    
     <Button
         android:id="@+id/accept_programm"
         android:layout_width="wrap_content"
