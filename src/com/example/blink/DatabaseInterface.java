@@ -14,6 +14,7 @@ public class DatabaseInterface extends SQLiteOpenHelper{
 	
 	private static final String List_DB_Create = "create table plist (" + KEY_ROWID + " integer primary key autoincrement, " + KEY_TEXT + " text not null)";
 	private static final String Programm_DB_Create = "create table programm (_id integer primary key autoincrement, time integer not null, lid integer not null, foreign key (lid) references plist (_id));";
+	private static final String test_list = "insert into plist VALUES ('0','test')";
 	
 	public DatabaseInterface(Context context){
 		super(context,DB_Name,null,DB_Version);
@@ -23,6 +24,7 @@ public class DatabaseInterface extends SQLiteOpenHelper{
 	public void onCreate(SQLiteDatabase database){
 		database.execSQL(List_DB_Create);
 		database.execSQL(Programm_DB_Create);
+		database.execSQL(test_list);
 	}
 	
 	@Override

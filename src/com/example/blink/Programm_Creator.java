@@ -13,29 +13,30 @@ public class Programm_Creator extends Activity{
 	
 	private static final int ACTIVITY_CREATE=0;
 	//private static final int ACTIVITY_EDIT=1;
+	private DatabaseAdapter DBA;
 	private Programm SP;
 	private EditText programm_name;
 	private EditText intervall1;
 	private EditText intervall2;
 	private EditText intervall3;
 	private EditText intervall4;
-	private Programm_Handler handler;
 
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.programm_create);
+        DBA = new DatabaseAdapter(this);
+        DBA.open();
+    }
+	
+	public void OnClick(View view) {
+		SP = new Programm();
         programm_name = (EditText) findViewById(R.id.programm_name);
         intervall1 = (EditText) findViewById(R.id.intervall1);
         intervall2 = (EditText) findViewById(R.id.intervall2);
         intervall3 = (EditText) findViewById(R.id.intervall3);
         intervall4 = (EditText) findViewById(R.id.intervall4);
-    }
-	
-	public void OnClick(View view) {
-		SP = new Programm();
-		handler = new Programm_Handler();
 	    switch (view.getId()) {
 	    case R.id.accept_programm:
 	      SP.setname(programm_name.getText().toString());	
@@ -46,9 +47,7 @@ public class Programm_Creator extends Activity{
 	      break;
 	    }
 	    try{
-	    	String xml;
-	    	xml = handler.create_Programm(SP);
-	    	handler.WriteProgramm(xml,SP.getname());
+	    	DBA.createProgramm(SP);
 	    } catch (Exception e) {
 	    	 Toast.makeText(getApplicationContext(), "An Error Occured", Toast.LENGTH_LONG).show();
 	    	e.printStackTrace();

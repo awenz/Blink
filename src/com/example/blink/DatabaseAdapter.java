@@ -12,9 +12,8 @@ public class DatabaseAdapter {
 	private DatabaseInterface DBI;
     private SQLiteDatabase DB;
     public static final String KEY_ROWID = "_id";
-    public static final String KEY_TEXT = "note";
-    public static final String DATABASE_TABLE = "notes";
-    private static final String DB_Create = "create table notes (_id integer primary key autoincrement, note text not null)";
+    public static final String KEY_TEXT = "name";
+    public static final String DATABASE_TABLE = "plist";
     
 	public DatabaseAdapter(Context context){
 		this.mCtx=context;
@@ -32,8 +31,13 @@ public class DatabaseAdapter {
 	
 	public long createProgramm(Programm programm){
 		ContentValues data = new ContentValues();
-		data.put("note","test");
-		return DB.insert("notes", null, data);
+		data.put("name", programm.getname());
+		DB.insert("plist", null, data);
+		if(0 != programm.geta())
+			data.put("time",programm.geta());
+		else
+			data.put("time",5);
+		return DB.insert("programm", null, data);
 	}
 	
 	public boolean deleteNote(long ID){
@@ -45,7 +49,11 @@ public class DatabaseAdapter {
 		return DB.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_TEXT}, null, null, null, null, null);
 	}
 	
-	public Cursor fetchNote(long rowId) throws SQLException {
+	public Cursor fetchList(){
+		return DB.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_TEXT}, null, null, null, null, null);
+	}
+	
+	public Cursor fetchProgramm(long rowId) throws SQLException {
 
         Cursor mCursor =
 
