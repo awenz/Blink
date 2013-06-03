@@ -1,8 +1,13 @@
 package com.example.blink;
 
 public class Programm {
-	private int a,b,c,d,e,f,g,h,i,j;
+	private int a,b,c,d,e,f,g,h,i,j = 0;
+	private long id;
 	private String name;
+	
+	public void setId(long id){
+		this.id = id;
+	}
 	
 	public void setname(String name){
 		this.name=name;
@@ -48,8 +53,12 @@ public class Programm {
 		j=i;
 	}
 	
+	public long getId(){
+		return id;
+	}
+	
 	public String getname(){
-		return this.name;
+		return name;
 	}
 	
 	public int geta(){
@@ -91,4 +100,9 @@ public class Programm {
 	public int getj(){
 		return j;
 	}
+	
+	@Override
+	  public String toString() {
+	    return name;
+	  }
 }

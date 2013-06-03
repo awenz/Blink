@@ -1,5 +1,8 @@
 package com.example.blink;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -31,12 +34,17 @@ public class DatabaseAdapter {
 	
 	public long createProgramm(Programm programm){
 		ContentValues data = new ContentValues();
-		data.put("name", programm.getname());
-		DB.insert("plist", null, data);
-		if(0 != programm.geta())
+		data.put(DatabaseAdapter.KEY_TEXT, programm.getname());
+		long insertId = DB.insert("plist", null, data);
+		data.clear();
+		if(0 != programm.geta()){
 			data.put("time",programm.geta());
-		else
+			data.put("lid", insertId);
+		}
+		else{
 			data.put("time",5);
+			data.put("lid", insertId);
+		}
 		return DB.insert("programm", null, data);
 	}
 	
@@ -44,14 +52,26 @@ public class DatabaseAdapter {
 		return DB.delete("note", "id" + "=" + ID, null) > 0;
 	}
 	
-	public Cursor fetchNotes(){
-		//return DB.rawQuery( "select rowid _id,* from notes", null);
-		return DB.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_TEXT}, null, null, null, null, null);
+	public List<ListItem> fetchList(){
+		List<ListItem> programms = new ArrayList<ListItem>();
+		Cursor tempCursor =  DB.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_TEXT}, null, null, null, null, null);
+		tempCursor.moveToFirst();
+		while (!tempCursor.isAfterLast()) {
+		      ListItem p = cursorToListItem(tempCursor);
+		      programms.add(p);
+		      tempCursor.moveToNext();
+		    }
+		tempCursor.close();
+		return programms;
 	}
 	
-	public Cursor fetchList(){
-		return DB.query(DATABASE_TABLE, new String[] {KEY_ROWID, KEY_TEXT}, null, null, null, null, null);
-	}
+	
+	private ListItem cursorToListItem(Cursor cursor) {
+		ListItem p = new ListItem();
+	    p.setId(cursor.getLong(0));
+	    p.setname(cursor.getString(1));
+	    return p;
+	  }
 	
 	public Cursor fetchProgramm(long rowId) throws SQLException {
 
