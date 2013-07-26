@@ -13,5 +13,11 @@
     <string name="intervall">Intervall</string>
     <string name="edit_programm">Edit Programm</string>
     <string name="add_intervall">Add Intervall</string>
+    <string name="program_hint">Program Name</string>
+    <string name="run">Time to Run</string>
+    <string name="rest">Time to Rest</string>
+    <string name="walk">Time to Walk</string>
+    <string name="repeat">Number of Repeats</string>
+
 
 </resources>
